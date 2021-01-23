@@ -1,0 +1,6 @@
+node_modules/
+public/
+README.md/
+.eslintcache/
+package.json/
+package-lock.json/

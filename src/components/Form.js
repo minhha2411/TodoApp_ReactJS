@@ -36,8 +36,8 @@ function Form() {
     });
 
     const handleSubmit = (e,value) => {
-    console.log(value);
-    let ID = 0;
+    if(value !== ''){
+        let ID = 0;
         if(todosArray.length === 0){
             ID = 0;
         }
@@ -48,9 +48,14 @@ function Form() {
             [...todosArray , {id: ID , text: value}]
         )
         e.preventDefault();
+    }
+    else{
+        e.preventDefault();
+    }
         
     }
     const handleDelete = (id) => {
+        console.log(id);
         let newArr =   todosArray.filter(el => el.id !== id );
         SetTodos([
           ...newArr
@@ -60,6 +65,7 @@ function Form() {
         SetEdit({isEdit: true , editedId: id});
     }
     const onEditChange =(id,value) =>{
+        
         SetEdit({isEdit: false , editedId: id});
         let i = todosArray.findIndex(l => {return l.id === id});
         todosArray[i].text = value;

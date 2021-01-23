@@ -39,14 +39,15 @@ const useStyles = makeStyles((theme) => ({
 
 function Todos(props) {
     const classes = useStyles();
+    
     return (
       <>
         {props.todosArray.map(todo =>  
-            <div className={classes.todo}>
+            <div className={classes.todo} key={todo.id}>
                 <div className={classes.inputContainer}>
                 <Input value={todo.text} 
                 disableUnderline={true} className={classes.inputTodo}
-                inputProps={{style: {textTransform: 'capitalize' , color: 'white'} }}></Input>
+                inputProps={{style: {textTransform: 'capitalize' , color: 'white', width: '300px'} }}></Input>
                 </div>
                 <div className={classes.icons}>
                 <DeleteIcon onClick={() => props.handleDelete(todo.id)}

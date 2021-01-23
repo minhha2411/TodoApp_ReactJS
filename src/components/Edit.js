@@ -38,15 +38,16 @@ function Edit(props) {
     }));
     const classes = useStyles();
     return (
-        <div className={classes.editForm}>
+        <form className={classes.editForm} onSubmit={() => props.onEditChange(editID,edit)}>
             <TextField type='text' onChange={handleOnChange}
             placeholder="Update value" variant='outlined' 
             InputProps={{
                 className: classes.multilineColor
               }} className={classes.inputForm}></TextField>
-            <Button onClick={() => props.onEditChange(editID,edit)}
-            className={classes.inputBtn}>Update</Button>
-        </div>
+              {/* onClick={() => props.onEditChange(editID,edit)} */}
+            <Button  className={classes.inputBtn} type='submit' 
+            onSubmit={() => props.onEditChange(editID,edit)}>Update</Button>
+        </form>
     )
 }
 
